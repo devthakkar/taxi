@@ -3,7 +3,7 @@ Python, SQL, scikit-learn, Pandas, matplotlib
 
 ## Project 2a
 
-**Part 1**: Mined NYC taxi ride data by querying database using SQLite. Conducted exploratory data analysis, inspection, and cleaning using SQL. Created training and validation datasets for future use. 
+**Part 1**: Mined NYC taxi ride data by querying database using SQLite. Conducted exploratory data analysis, inspection, and cleaning using SQL. Created training and validation datasets for future use.
 
 **Part 2**: Continued exploration on training dataset. Visualized and analyzed time, distance, and spatial/locational features. Implemented clustering analysis to pinpoint more nuanced features.
 
