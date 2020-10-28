@@ -1,14 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
-# Initialize OK
-from client.api.notebook import Notebook
-ok = Notebook('proj3.ok')
-
-
 
 import numpy as np
 import pandas as pd
@@ -68,7 +60,6 @@ clean_taxi = alltaxi5
 
 
 # Created a DataFrame called `manhattan_taxi` that only includes trips from `clean_taxi` that start and end within a polygon that defines the boundaries of [Manhattan Island](https://www.google.com/maps/place/Manhattan,+New+York,+NY/@40.7590402,-74.0394431,12z/data=!3m1!4b1!4m5!3m4!1s0x89c2588f046ee661:0xa0b3281fcecc08c!8m2!3d40.7830603!4d-73.9712488).
-
 
 polygon = pd.read_csv('manhattan.csv')
 plt.scatter(polygon['lat'], polygon['lon'])
@@ -138,7 +129,6 @@ for x in range(0, len(manhattan_taxi)):
 manhattan_taxi['date'] = pd.Series(data = dates, name = 'date')
 
 
-
 # data visualization that allows us to identify which dates were affected by the historic blizzard of January 2016
 
 added= manhattan_taxi.copy()
@@ -165,9 +155,7 @@ print(re.sub(pat, '   ', calendar.month(2016, 1)))
 final_taxi = manhattan_taxi[manhattan_taxi['date'].isin(typical_dates)]
 
 
-
 # ## Part 3: Feature Engineering
-
 
 
 import sklearn.model_selection
@@ -177,16 +165,12 @@ train, test = sklearn.model_selection.train_test_split(
 print('Train:', train.shape, 'Test:', test.shape)
 
 
-# ### Question 3a
-# 
+# ### Question 3a 
 # box plot that compares the distributions of taxi trip durations for each day
 
 
 sns.boxplot(x='date', y='duration', data=train.sort_values('date'))
 plt.title('Duration by Date')
-
-
-
 
 def speed(t):
     """Return a column of speeds in miles per hour."""
@@ -301,12 +285,6 @@ for v in np.unique(train['period']):
     
 period_rmse = rmse(np.array(errors))
 period_rmse
-
-
-# In[50]:
-
-
-ok.grade("q4d");
 
 model = LinearRegression()
 model.fit(design_matrix(train), train['speed'])
